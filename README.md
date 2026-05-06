@@ -109,7 +109,7 @@ Velora/
 
 **Step 1 — Clone the repository**
 ```bash
-git clone https://github.com/ArnaB-Royy/Velora.git
+git clone https://github.com/Pritikona-Patra/Velora.git
 cd Velora
 ```
 
