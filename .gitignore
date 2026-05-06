@@ -1,0 +1,19 @@
+# Python virtual environment
+BACKEND/venv/
+
+# Python cache
+BACKEND/__pycache__/
+BACKEND/*.pyc
+
+# Model file (too large for GitHub)
+BACKEND/chatbot_model.pth
+
+# Node modules
+FRONTEND/node_modules/
+
+# Environment variables
+BACKEND/.env
+
+# OS files
+.DS_Store
+Thumbs.db
