@@ -1,100 +1,58 @@
 # Velora 🤖
 ### AI-Powered Chatbot Assistant
 
-Velora is an intelligent chatbot assistant built from scratch using deep learning. It features a custom-trained LSTM Seq2Seq model for natural language conversation, a Flask REST API backend, and a modern React frontend — all connected seamlessly in a full-stack architecture.
+Velora is an intelligent chatbot assistant powered by **Llama 3.3 via Groq API**, featuring a Flask REST API backend and a modern React + Vite frontend — all connected seamlessly in a full-stack architecture.
 
 ---
 
 ## 🧠 About the Project
 
-Velora was developed as a learning-focused generative AI project to explore the fundamentals of deep learning, natural language processing, and full-stack web development. The chatbot is trained on real conversational data and can engage in basic human-like dialogue.
+Velora was developed as a learning-focused generative AI project to explore large language model integration, REST API design, and full-stack web development. The chatbot leverages Llama 3.3-70B via the Groq API for fast, high-quality conversational AI responses.
 
-The project demonstrates an end-to-end AI application pipeline — from data preparation and model training to API deployment and frontend integration.
+The project demonstrates an end-to-end AI application pipeline — from LLM integration and API deployment to a polished frontend experience.
 
 ---
 
 ## ✨ Features
 
-- 🧠 **Custom Deep Learning Model** — LSTM-based Seq2Seq architecture built from scratch using PyTorch
-- 💬 **Natural Conversation** — Trained on the DailyDialog dataset with 45,000+ conversation pairs
+- 🧠 **LLM-Powered** — Uses Llama 3.3-70B via Groq API for ChatGPT-level responses
+- ⚡ **Ultra Fast** — Sub-second response times powered by Groq's inference infrastructure
+- 💬 **Context Aware** — Maintains full conversation history across the session
 - 🔗 **REST API** — Flask backend exposing clean API endpoints for chat interaction
-- 🌐 **Modern Frontend** — Responsive React-based user interface
-- ⚡ **Fast Inference** — Lightweight model optimized for CPU inference
+- 🌐 **Modern Frontend** — React + Vite with a dark neon teal theme
 - 🔄 **CORS Enabled** — Seamless communication between frontend and backend
+- 🔒 **Secure** — API keys stored in environment variables, never exposed in code
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Artificial Intelligence & Backend
+### AI & Backend
 | Technology | Purpose |
 |---|---|
 | Python 3.11 | Core programming language |
-| PyTorch 2.2.0 | Deep learning framework |
-| LSTM Seq2Seq | Chatbot model architecture |
+| Groq API | LLM inference infrastructure |
+| Llama 3.3-70B | Large language model |
 | Flask | REST API framework |
 | Flask-CORS | Cross-origin resource sharing |
-| NumPy | Numerical computations |
+| python-dotenv | Environment variable management |
 
 ### Frontend
 | Technology | Purpose |
 |---|---|
 | React.js | UI framework |
-| JavaScript (ES6+) | Frontend logic |
-| HTML5 / CSS3 | Structure and styling |
-| Axios | API communication |
+| Vite | Build tool & dev server |
+| Tailwind CSS | Utility-first styling |
+| React Router | Client-side routing |
+| Space Grotesk | Typography |
 
 ### Tools & Platforms
 | Tool | Purpose |
 |---|---|
-| Google Colab | Model training (GPU) |
 | VS Code | Development environment |
 | GitHub | Version control |
-| Kaggle | Dataset source |
-
----
-
-## 🧬 Model Architecture
-
-Velora uses a **Sequence-to-Sequence (Seq2Seq)** architecture with LSTM (Long Short-Term Memory) networks:
-
-```
-User Input (text)
-      ↓
-  Tokenizer  →  converts words to token indices
-      ↓
-  Encoder (LSTM)  →  understands and encodes the input
-      ↓
-  Context Vector  →  compressed representation of input
-      ↓
-  Decoder (LSTM)  →  generates reply word by word
-      ↓
-  Detokenizer  →  converts indices back to words
-      ↓
-Bot Reply (text)
-```
-
-### Model Details
-| Parameter | Value |
-|---|---|
-| Architecture | LSTM Seq2Seq |
-| Embedding Size | 256 |
-| Hidden Size | 512 |
-| Vocabulary Size | ~13,000 words |
-| Max Sequence Length | 20 tokens |
-| Total Parameters | 16,488,145 |
-| Training Epochs | 40 |
-| Final Loss | ~0.74 |
-
----
-
-## 📦 Dataset
-
-- **Dataset:** DailyDialog (Multi-turn Dialog)
-- **Source:** Kaggle
-- **Training Pairs:** 45,015 conversation pairs
-- **Type:** Real-world everyday conversations
-- **Topics:** Greetings, daily life, travel, food, and more
+| Postman | API testing |
+| Groq Console | API key management |
 
 ---
 
@@ -104,21 +62,35 @@ Bot Reply (text)
 Velora/
 │
 ├── BACKEND/                        # Python Flask API
-│   ├── venv/                       # Virtual environment
+│   ├── venv/                       # Virtual environment (not pushed)
 │   ├── app.py                      # Flask application & API routes
-│   ├── chatbot_model.pth           # Trained PyTorch model
+│   ├── model.py                    # Groq LLM integration
+│   ├── .env                        # API keys (not pushed)
 │   └── requirements.txt            # Python dependencies
 │
-├── frontend/                       # React frontend
+├── FRONTEND/                       # React + Vite frontend
 │   ├── public/                     # Static assets
-│   ├── src/                        # React source code
-│   │   ├── components/             # React components
-│   │   ├── App.js                  # Main app component
-│   │   └── index.js                # Entry point
-│   └── package.json                # Node dependencies
+│   ├── src/
+│   │   ├── components/             # Reusable UI components
+│   │   │   ├── Navbar.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── ChatWindow.jsx
+│   │   │   ├── MessageBubble.jsx
+│   │   │   ├── InputBar.jsx
+│   │   │   └── TypingIndicator.jsx
+│   │   ├── pages/
+│   │   │   ├── LandingPage.jsx
+│   │   │   └── ChatPage.jsx
+│   │   ├── App.jsx                 # Route definitions
+│   │   ├── main.jsx                # Entry point
+│   │   └── index.css               # Global styles + Tailwind
+│   ├── tailwind.config.js
+│   ├── postcss.config.js
+│   └── package.json
 │
-├── .gitignore                      # Git ignore rules
-└── README.md                       # Project documentation
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
 
 ---
@@ -126,10 +98,10 @@ Velora/
 ## 🚀 Getting Started
 
 ### Prerequisites
-Make sure you have the following installed:
 - [Python 3.11](https://www.python.org/downloads/)
 - [Node.js](https://nodejs.org/)
 - [Git](https://git-scm.com/)
+- A free [Groq API key](https://console.groq.com)
 
 ---
 
@@ -137,19 +109,16 @@ Make sure you have the following installed:
 
 **Step 1 — Clone the repository**
 ```bash
-git clone https://github.com/yourusername/Velora.git
+git clone https://github.com/ArnaB-Royy/Velora.git
 cd Velora
 ```
 
-**Step 2 — Go to backend folder**
+**Step 2 — Go to backend folder and create virtual environment**
 ```bash
 cd BACKEND
-```
 
-**Step 3 — Create and activate virtual environment**
-```bash
 # Windows
-"C:\Program Files\Python311\python.exe" -m venv venv
+python -m venv venv
 venv\Scripts\activate
 
 # Mac/Linux
@@ -157,16 +126,20 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-**Step 4 — Install dependencies**
+**Step 3 — Install dependencies**
 ```bash
-pip install flask flask-cors numpy==1.26.4
-pip install torch==2.2.0 --index-url https://download.pytorch.org/whl/cpu
+pip install -r requirements.txt
 ```
 
-**Step 5 — Add the model file**
-> Download `chatbot_model.pth` and place it in the `BACKEND/` folder.
+**Step 4 — Set up environment variables**
 
-**Step 6 — Run the Flask server**
+Create a `.env` file in the `BACKEND/` folder:
+```
+GROQ_API_KEY=your_groq_api_key_here
+```
+Get your free API key at [console.groq.com](https://console.groq.com)
+
+**Step 5 — Run the Flask server**
 ```bash
 python app.py
 ```
@@ -179,7 +152,7 @@ python app.py
 
 **Step 1 — Go to frontend folder**
 ```bash
-cd frontend
+cd FRONTEND
 ```
 
 **Step 2 — Install dependencies**
@@ -187,12 +160,12 @@ cd frontend
 npm install
 ```
 
-**Step 3 — Start the React app**
+**Step 3 — Start the dev server**
 ```bash
-npm start
+npm run dev
 ```
 
-> ✅ App will open at `http://localhost:3000`
+> ✅ App will open at `http://localhost:5173`
 
 ---
 
@@ -205,7 +178,7 @@ GET /health
 **Response:**
 ```json
 {
-    "status": "Chatbot API is running! ✅"
+    "status": "ok"
 }
 ```
 
@@ -218,47 +191,48 @@ POST /chat
 **Request Body:**
 ```json
 {
-    "message": "hello"
+    "message": "Hello, who are you?"
 }
 ```
 **Response:**
 ```json
 {
-    "status": "success",
-    "user_message": "hello",
-    "bot_response": "hi how are you doing today"
+    "reply": "I'm Velora, a friendly AI assistant here to help you!"
 }
 ```
 
 ---
 
-## 🏋️ Model Training
-
-The model was trained on **Google Colab** using a T4 GPU:
-
-| Phase | Epochs | Final Loss | Time |
-|---|---|---|---|
-| Phase 1 | 1 - 20 | 2.2198 | ~45 mins |
-| Phase 2 | 21 - 40 | 0.7416 | ~45 mins |
-| **Total** | **40** | **0.7416** | **~90 mins** |
+### Reset Conversation
+```
+POST /reset
+```
+**Response:**
+```json
+{
+    "status": "Conversation reset"
+}
+```
 
 ---
 
 ## 🔮 Future Improvements
 
-- [ ] Upgrade to Transformer-based architecture for better responses
-- [ ] Add user authentication
-- [ ] Implement conversation history
-- [ ] Deploy to cloud (AWS / Heroku)
-- [ ] Add support for multiple languages
-- [ ] Improve response relevance with attention mechanism
+- [ ] User authentication & accounts
+- [ ] Persistent chat history with a database
+- [ ] Cloud deployment (AWS / Railway / Render)
+- [ ] Multi-language support
+- [ ] Voice input/output
+- [ ] Custom personality/system prompt configuration
 
 ---
 
-## 👨‍💻 Author
+## 👨‍💻 Authors
 
-**Velora Project**
-- GitHub: [@yourusername](https://github.com/yourusername)
+| Name | GitHub |
+|---|---|
+| Arnab Roy | [@ArnaB-Royy](https://github.com/ArnaB-Royy) |
+| Pritikona Patra | [@Pritikona-Patra](https://github.com/Pritikona-Patra) |
 
 ---
 
